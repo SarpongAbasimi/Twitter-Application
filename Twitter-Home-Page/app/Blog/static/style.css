@@ -1,0 +1,94 @@
+/* The base template */
+#main_body{
+  background-color: #E8F5FD;
+}
+
+/* Login and Register Style */
+#register_form_container{
+  width: 300px;
+  margin-top: 50px;
+}
+
+#login_form_container{
+  width: 400px;
+  margin-top: 50px;
+}
+
+#login_legend{
+  font-weight: bold;
+}
+
+/*Index page for User */
+#index-nav{
+  width: 100%;
+  height: 45px;
+  background-color: #FFFFFF;
+  position: sticky;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#index-nav #index-ul{
+  display: flex;
+  text-align: center;
+  line-height: 45px;
+}
+
+#index-nav #index-ul .icon-home{
+  line-height: 45px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+#index-nav #index-ul .icon-moment{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-notification{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-message{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-portfolio{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul li{
+  list-style-type: none;
+  margin: 0 10px;
+}
+
+#index-nav #index-ul li :hover{
+color: #08a0e9;
+}
+
+#index-nav #index-ul a{
+  text-decoration: none;
+  color: #999999;
+}
+
+#index-nav #index-ul #user-image-nav{
+
+  width: 180px;
+  height: 500px;
+  margin-top: 5px;
+}
+
+#index-nav #index-ul #user-image-nav .nav-img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-bottom: 17px;
+}
+
+#index-nav #index-ul #user-image-nav .list-container{
+  background-color: #ffffff;
+  width: 180px;
+  height: 400px;
+
+}
