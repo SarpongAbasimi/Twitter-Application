@@ -1,0 +1,141 @@
+/* The base template */
+#main_body{
+  background-color: #E8F5FD;
+}
+
+/* Login and Register Style */
+#register_form_container{
+  width: 300px;
+  margin-top: 50px;
+}
+
+#login_form_container{
+  width: 400px;
+  margin-top: 50px;
+}
+
+#login_legend{
+  font-weight: bold;
+}
+
+/*Index page for User */
+#index-nav{
+  width: 100%;
+  height: 45px;
+  background-color: #FFFFFF;
+  position: sticky;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#index-nav #index-ul{
+  display: flex;
+  text-align: center;
+  line-height: 45px;
+}
+
+/* Icons next to nav items */
+#index-nav #index-ul .icon-home{
+  line-height: 45px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+#index-nav #index-ul .icon-moment{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-notification{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-message{
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#index-nav #index-ul .icon-portfolio{
+  line-height: 45px;
+  font-size: 18px;
+}
+/* Icons Ends here */
+
+#index-nav #index-ul .ul-list{
+list-style-type: none;
+margin: 0 10px;
+height: 45px;
+}
+
+#index-nav #index-ul .nav-items{
+  text-decoration: none;
+  display: block;
+  color: #999999;
+}
+#index-nav #index-ul .nav-items:hover{
+  cursor: pointer;
+  color: #08a0e9;
+}
+
+/* Drop Down Arrow */
+#index-nav #index-ul #user-image-nav{
+  width: 180px;
+  height: 400px;
+  margin-top: 5px;
+}
+
+
+#index-nav #index-ul #user-image-nav .drop-list{
+  list-style-type: none;
+}
+
+#index-nav #index-ul #user-image-nav .drop-elements{
+  text-decoration: none;
+  color: #999999;
+}
+
+#index-nav #index-ul #user-image-nav .drop-elements:hover{
+  color: #08a0e9;
+}
+
+/* Images next to list items in drop down arrow */
+#index-nav #index-ul #user-image-nav .profile{
+  margin-right: 100px;
+}
+
+#index-nav #index-ul #user-image-nav .list{
+  margin-right: 110px;
+}
+
+#index-nav #index-ul #user-image-nav .moments{
+  margin-right: 80px;
+}
+#index-nav #index-ul #user-image-nav .setting{
+  margin-right: 10px;
+}
+
+#index-nav #index-ul #user-image-nav .help{
+  margin-right: 70px;
+}
+
+#index-nav #index-ul #user-image-nav .logout{
+  margin-right: 100px;
+}
+#index-nav #index-ul #user-image-nav .nightmode{
+  margin-right: 50px;
+}
+
+#index-nav #index-ul #user-image-nav .nav-img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-bottom: 17px;
+}
+
+#index-nav #index-ul #user-image-nav .list-container{
+  background-color: #ffffff;
+  width: 180px;
+  height: 400px;
+  border-radius: 10px;
+  z-index: 1000px;
+  display: none;
+}

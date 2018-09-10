@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<nav id="index-nav">
+  <ul id="index-ul">
+    <i class="fas fa-home icon-home"></i>
+    <li class="ul-list"><a href="#" id="home" class="nav-items mr-2">Home</a></li>
+    <i class="fas fa-bolt icon-moment"></i>
+    <li class="ul-list"><a href="#" id="moment" class="nav-items mr-2">Moments</a></li>
+    <i class="fas fa-bell icon-notification"></i>
+    <li class="ul-list"><a href="#" id="notification" class="nav-items mr-2">Notifications</a></li>
+    <i class="fas fa-envelope icon-message"></i>
+    <li class="ul-list"><a href="#" id="message" class="nav-items mr-2">Messages</a></li>
+    <i class="fas fa-suitcase icon-portfolio"></i>
+    <li class="ul-list"><a href="#" id="portfolio" class="nav-items">Portfolio</a></li>
+
+    <div id="user-image-nav">
+     <img src="#" class="nav-img">
+
+     <div class="list-container">
+       <li class="drop-list"><i class="fas fa-user"></i><a href="#" class="drop-elements profile ml-2">Profile</a></li>
+       <li class="drop-list"><i class="fas fa-list-alt"></i><a href="#" class="drop-elements list ml-2">Lists</a></li>
+       <li class="drop-list"><i class="fas fa-bolt"></i><a href="#" class="drop-elements moments ml-2">Moments</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements setting">Settings and Privacy</a></li>
+       <li class="drop-list"><a href="#" class="drop-elements help">Help Center</a></li>
+       <li class="drop-list"><a href="{{url_for('auth.logout')}}" class="drop-elements logout">Log out</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements nightmode">Night mode</a><i class="fas fa-moon mr-2"></i></li>
+     </div>
+   </img>
+   </div>
+
+  </ul>
+</nav>
+{%endblock head%}
+
+{% block content%}
+
+{%endblock content%}
