@@ -1,0 +1,95 @@
+{%extends 'base.html'%}
+{% block content%}
+<div id="register_form_container" class="container">
+<form method="POST" action="">
+{{form.hidden_tag()}}
+
+<div class="form-group">
+{{form.name.label}}
+{% if form.name.errors%}
+{{form.name (class='form-control input-sm is-invalid')}}
+<div class='invalid-feedback'>
+{%for error in form.name.errors%}
+<span>{{error}}</span>
+{% endfor %}
+</div>
+{%else%}
+{{form.name (autocomplete="off",class='form-control input-sm')}}
+{% endif%}
+</div>
+
+
+
+<div class="form-group">
+{{form.username.label}}
+{% if form.username.errors%}
+{{form.username (class='form-control input-sm is-invalid')}}
+<div class="invalid-feedback">
+  {% for error in form.username.errors%}
+  <span>{{error}}</span>
+  {% endfor %}
+</div>
+  {% else %}
+  {{form.username (autocomplete="off",class='form-control input-sm')}}
+{%endif%}
+</div>
+
+
+<div class="form-group">
+{{form.email.label}}
+{% if form.email.errors%}
+{{form.email (class='form-control input-sm is-invalid')}}
+<div class="invalid-feedback">
+  {% for error in form.email.errors %}
+  <span>{{error}}</span>
+  {% endfor %}
+</div>
+  {%else%}
+  {{form.email (autocomplete="off",class='form-control input-sm')}}
+   {% endif %}
+</div>
+
+
+
+<div class="form-group">
+{{form.password.label}}
+{% if form.password.errors %}
+{{form.password (class='form-control input-sm is-invalid')}}
+<div class="invalid-feedback">
+  {% for error in form.password.errors%}
+  <span>{{error}}</span>
+  {% endfor %}
+</div>
+{%else%}
+{{form.password (autocomplete="off",class='form-control input-sm')}}
+{% endif%}
+</div>
+
+
+
+<div class="form-group">
+{{form.confirm_password.label}}
+  {% if form.confirm_password.errors%}
+  {{form.confirm_password(class='form-control input-sm is-invalid')}}
+  <div class="invalid-feedback">
+    {% for error in form.confirm_password.errors%}
+    <span>{{error}}</span>
+    {%endfor%}
+  </div>
+  {%else%}
+  {{form.confirm_password(autocomplete="off",class='form-control input-sm')}}
+ {%endif%}
+</div>
+
+
+
+<div class="form-group">
+{{form.submit(class='btn')}}
+</div>
+<hr>
+<small>Already using Click ? <a href='{{url_for('auth.login')}}' class="text-muted"> Log in</a></small>
+</form>
+</div>
+
+
+{%endblock%}
