@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{%block content%}
+<div class="userprofilebanner">
+
+</div>
+<div class="profile_element">
+  <div class="con_user_picture">
+    <img src="" class=" cuser_picture">
+  </div>
+    <ul class="elements_container">
+         <div class="w firsttweet"><li class="prolist">Tweet<a href='#' class="Tspace"></a></li></div>
+         <div class="w second_following"><li class="prolist">Following<a href='#' class='Fspace '></a></li></div>
+         <div class="w second_followers"><li class="prolist">Followers<a href='#' class="Fospace" ></a></li></div>
+         <div class="w second_likes"><li class="prolist">Likes<a href='#' class="Lispace"></a></li></div>
+         <div class="w second_list"><li class="prolist">List<a href='#' class="Lspace"></a></li></div>
+         <div class="w second_moments"><li class="prolist">Moments<a href='#' class="Mspace"></a></li></div>
+        <div class="edit_btn"><a href='{{url_for('users.edit',username=current_user.username)}}'>{{form.submit(class='my_profile_btn btn btn-outline-secondary')}}</a> </div>
+    </ul>
+
+
+ </div>
+
+
+<div class="col-6 userpostpage">
+{% for posts in post%}
+{%if posts%}
+<div>
+  {{posts.content}}
+</div>
+{%endif%}
+{% endfor%}
+</div>
+
+
+{%endblock content%}
