@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{%block head%}
+<nav id="index-nav">
+  <ul id="index-ul">
+    <i class="fas fa-home icon-home"></i>
+    <li class="ul-list"><a href="{{url_for('users.index')}}" id="home" class="nav-items mr-2">Home</a></li>
+    <i class="fas fa-bolt icon-moment"></i>
+    <li class="ul-list"><a href="#" id="moment" class="nav-items mr-2">Moments</a></li>
+    <i class="fas fa-bell icon-notification"></i>
+    <li class="ul-list"><a href="#" id="notification" class="nav-items mr-2">Notifications</a></li>
+    <i class="fas fa-envelope icon-message"></i>
+    <li class="ul-list"><a href="#" id="message" class="nav-items mr-2">Messages</a></li>
+    <i class="fas fa-suitcase icon-portfolio"></i>
+    <li class="ul-list"><a href="#" id="portfolio" class="nav-items">Portfolio</a></li>
+
+    <div id="user-image-nav">
+      <img src="#" class="nav-img">
+     <div class="list-container">
+      <li class="drop-list current_user_name">{{current_user.name}} </li>
+       <li class="drop-list current_user_username">@{{current_user.username}}</li>
+        <hr>
+       <li class="drop-list"><i class="fas fa-user"></i><a href="{{url_for('users.profile',username=current_user.username)}}" class="drop-elements profile ml-2">Profile</a></li>
+       <li class="drop-list"><i class="fas fa-list-alt"></i><a href="#" class="drop-elements list ml-2">Lists</a></li>
+       <li class="drop-list"><i class="fas fa-bolt"></i><a href="#" class="drop-elements moments ml-2">Moments</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements setting">Settings and Privacy</a></li>
+       <li class="drop-list"><a href="#" class="drop-elements help">Help Center</a></li>
+       <li class="drop-list"><a href="{{url_for('auth.logout')}}" class="drop-elements logout">Log out</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements nightmode">Night mode</a><i class="fas fa-moon mr-2"></i></li>
+     </div>
+   </img>
+   </div>
+  </ul>
+</nav>
+{%endblock head%}
+{%block content%}
+<div class="userprofilebanner">
+
+</div>
+<div class="profile_element">
+  <div class="con_user_picture">
+    <img src="" class=" cuser_picture">
+  </div>
+    <ul class="elements_container">
+         <div class="w firsttweet"><li class="prolist">Tweet<a href='#' class="Tspace"></a></li></div>
+         <div class="w second_following"><li class="prolist">Following<a href='#' class='Fspace '></a></li></div>
+         <div class="w second_followers"><li class="prolist">Followers<a href='#' class="Fospace" ></a></li></div>
+         <div class="w second_likes"><li class="prolist">Likes<a href='#' class="Lispace"></a></li></div>
+         <div class="w second_list"><li class="prolist">List<a href='#' class="Lspace"></a></li></div>
+         <div class="w second_moments"><li class="prolist">Moments<a href='#' class="Mspace"></a></li></div>
+        <div class="edit_btn"><a href='{{url_for('users.edit',username=current_user.username)}}'>{{form.submit(class='my_profile_btn btn btn-outline-secondary')}}</a> </div>
+    </ul>
+ </div>
+
+<div class="row">
+
+ <div class=" c_user_info">
+ <li class="bullet"><span class="c_user_name">{{current_user.name}}</span></li>
+ <li class="bullet"><i class="far fa-calendar-alt mr-1"></i><span class="text-muted">Joined {{current_user.date_joined.strftime('%b %Y')}}</span></li>
+ <li class="bullet"><i class="fas fa-map-marker-alt mr-1"></i><span class="text-muted">{{current_user.location}}</span></li>
+ <li class="bullet"><i class="fas fa-info mr-1 ml-1"></i><span class="text-muted">{{current_user.about_me}}</span></li>
+ </div>
+ <!-- Post Column Post display -->
+
+
+ <div class="mainpostdiv col-6">
+   <div>
+     {% for posts in post %}
+     <div class="media content-section mt-1">
+       <img class="rounded-circle-user rounded-circle article-img" src="#">
+       <div class="media-body">
+         <div class="post-metadata">
+           <small class="m-1 post-author-name" >{{current_user.name}}</small>
+           {% if current_user.name %}
+            <small>@{{current_user.username}}</small>
+            {% endif%}
+            <small class="text-muted">{{moment(posts.timestamp).fromNow() }}</small>
+          </div>
+          <div class=" ml-1">
+           <p class="">{{posts.content}}</p>
+         </div>
+       </div>
+     </div>
+     {% endfor %}
+   </div>
+</div>
+
+
+
+
+
+
+{%endblock content%}
