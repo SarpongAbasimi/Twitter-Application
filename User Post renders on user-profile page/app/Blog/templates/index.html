@@ -1,0 +1,91 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<nav id="index-nav">
+  <ul id="index-ul">
+    <i class="fas fa-home icon-home"></i>
+    <li class="ul-list"><a href="{{url_for('users.index')}}" id="home" class="nav-items mr-2">Home</a></li>
+    <i class="fas fa-bolt icon-moment"></i>
+    <li class="ul-list"><a href="#" id="moment" class="nav-items mr-2">Moments</a></li>
+    <i class="fas fa-bell icon-notification"></i>
+    <li class="ul-list"><a href="#" id="notification" class="nav-items mr-2">Notifications</a></li>
+    <i class="fas fa-envelope icon-message"></i>
+    <li class="ul-list"><a href="#" id="message" class="nav-items mr-2">Messages</a></li>
+    <i class="fas fa-suitcase icon-portfolio"></i>
+    <li class="ul-list"><a href="#" id="portfolio" class="nav-items">Portfolio</a></li>
+
+    <div id="user-image-nav">
+      <img src="#" class="nav-img">
+     <div class="list-container">
+      <li class="drop-list current_user_name">{{current_user.name}} </li>
+       <li class="drop-list current_user_username">@{{current_user.username}}</li>
+        <hr>
+       <li class="drop-list"><i class="fas fa-user"></i><a href="{{url_for('users.profile',username=current_user.username)}}" class="drop-elements profile ml-2">Profile</a></li>
+       <li class="drop-list"><i class="fas fa-list-alt"></i><a href="#" class="drop-elements list ml-2">Lists</a></li>
+       <li class="drop-list"><i class="fas fa-bolt"></i><a href="#" class="drop-elements moments ml-2">Moments</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements setting">Settings and Privacy</a></li>
+       <li class="drop-list"><a href="#" class="drop-elements help">Help Center</a></li>
+       <li class="drop-list"><a href="{{url_for('auth.logout')}}" class="drop-elements logout">Log out</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements nightmode">Night mode</a><i class="fas fa-moon mr-2"></i></li>
+     </div>
+   </img>
+   </div>
+  </ul>
+</nav>
+{%endblock head%}
+{% block content%}
+
+
+
+<div class="row">
+  <div class="user_info_details">
+    <div class="user_banner">
+      <div>
+        <img class="the_banner" src='https://media.giphy.com/media/1wr0DgrUepi34TRvll/giphy.gif'>
+      </div>
+
+      <div class="user_img_usernamebox">
+        <div class="user_img_box ml-1">
+        <a href="{{url_for('users.profile',username=current_user.username)}}"> <img class="user_img" src="https://media.giphy.com/media/ORogjePEXV0uk/giphy.gif"></a>
+        </div>
+        <!-- where the current user name and username is -->
+         <div class=" ml-2 mr-1 user_usernamebox">
+           <i class="fas fa-user"></i>
+           <span id="user_name">{{current_user.name}}</span> <br>
+           <span class="text-muted" id="user_username"> @{{current_user.username}}</span> <br>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+      </div>
+
+      <!-- Put Tweets ,number Followers , Following -->
+
+    </div>
+  </div>
+
+  <!-- The second Column on the page where posts are rendered -->
+  <div class=" col second_col">
+      <div class="real_input_container row">
+        <!--the div containing your image -->
+        <div class="post_img_div">
+          <img class="actual_img" src="https://media.giphy.com/media/l4q8bXnHI4k7Wv9kY/giphy.gif">
+        </div>
+      <form class="post_form" method="POST" action="#">
+        {{form.hidden_tag()}}
+      <div class="post_content">{{form.content (placeholder='What are you thinking?',class='form-control real_input',autocomplete="off")}}</div>
+      <div id="indexpost_container">
+              {{form.submit(class='btn btn-primary ')}}
+      </div>
+
+    </form>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+{%endblock content%}

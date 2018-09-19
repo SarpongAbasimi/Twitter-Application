@@ -1,0 +1,91 @@
+{%extends 'base.html'%}
+{%block head%}
+<nav id="index-nav">
+  <ul id="index-ul">
+    <i class="fas fa-home icon-home"></i>
+    <li class="ul-list"><a href="{{url_for('users.index')}}" id="home" class="nav-items mr-2">Home</a></li>
+    <i class="fas fa-bolt icon-moment"></i>
+    <li class="ul-list"><a href="#" id="moment" class="nav-items mr-2">Moments</a></li>
+    <i class="fas fa-bell icon-notification"></i>
+    <li class="ul-list"><a href="#" id="notification" class="nav-items mr-2">Notifications</a></li>
+    <i class="fas fa-envelope icon-message"></i>
+    <li class="ul-list"><a href="#" id="message" class="nav-items mr-2">Messages</a></li>
+    <i class="fas fa-suitcase icon-portfolio"></i>
+    <li class="ul-list"><a href="#" id="portfolio" class="nav-items">Portfolio</a></li>
+
+    <div id="user-image-nav">
+      <img src="#" class="nav-img">
+     <div class="list-container">
+      <li class="drop-list current_user_name">{{current_user.name}} </li>
+       <li class="drop-list current_user_username">@{{current_user.username}}</li>
+        <hr>
+       <li class="drop-list"><i class="fas fa-user"></i><a href="{{url_for('users.profile',username=current_user.username)}}" class="drop-elements profile ml-2">Profile</a></li>
+       <li class="drop-list"><i class="fas fa-list-alt"></i><a href="#" class="drop-elements list ml-2">Lists</a></li>
+       <li class="drop-list"><i class="fas fa-bolt"></i><a href="#" class="drop-elements moments ml-2">Moments</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements setting">Settings and Privacy</a></li>
+       <li class="drop-list"><a href="#" class="drop-elements help">Help Center</a></li>
+       <li class="drop-list"><a href="{{url_for('auth.logout')}}" class="drop-elements logout">Log out</a></li>
+       <hr>
+       <li class="drop-list"><a href="#" class="drop-elements nightmode">Night mode</a><i class="fas fa-moon mr-2"></i></li>
+     </div>
+   </img>
+   </div>
+  </ul>
+</nav>
+{%endblock head%}
+
+
+{%block content%}
+
+<div class=" edit_form container">
+  <form method="POST" action="#" class="form-group fomrm_holder">
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+    <i class="fas fa-user-circle mr-1"></i>{{form.username.label(class='form-control-label text-muted')}}
+      {% if form.username.errors%}
+      {{form.username (autocomplete="off" ,class='form-control is-invalid')}}
+      <div class="invalid-feedback">
+          {% for error in form.username.errors%}
+       <span> {{error}}</span>
+           {% endfor%}
+      </div>
+      {% else%}
+      {{form.username (autocomplete="off" ,class='form-control')}}
+      {% endif%}
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-map-marker-alt mr-1"></i>{{form.location.label (class='form-control-label text-muted')}}
+      {% if form.location.errors%}
+          {{form.location(autocomplete="off",class='form-control is-invalid')}}
+          <div class="invalid-feedback">
+            {%for error in form.location.errors%}
+            <span>{{error}}</span>
+            {%endfor%}
+          </div>
+             {%else%}
+           {{form.location(autocomplete="off",class='form-control')}}
+         {% endif%}
+    </div>
+
+    <div class="form-group about_me">
+     <i class="fas fa-info-circle mr-1"></i>{{form.about_me.label (class='form-control-label text-muted')}}
+     {% if form.about_me.errors%}
+      {{form.about_me(autocomplete="off",class='form-control aboutform is-invalid')}}
+      <div class="invalid-feedback">
+        {%for error in form.about_me.errors%}
+        <span>{{error}}<span>
+        {%endfor%}
+      </div>
+      {%else%}
+      {{form.about_me(autocomplete="off",class='form-control aboutform')}}
+    {% endif %}
+    </div>
+    <div class="form-group">
+      <a href="{{url_for('users.profile',username=current_user.username)}}">{{form.save_me(class='btn btn-outline-primary')}}</a>
+    </div>
+  </form>
+</div>
+{%endblock content%}
